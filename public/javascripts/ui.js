@@ -3,11 +3,13 @@
     onClickSeat: function () {
       var x = $(this).data("x");
       var y = $(this).data("y");
+      this.reserveSeat(x, y);
     },
 
-    reserveSeat: function (line, seat) {
+    reserveSeat: function (seat, line) {
       if (this.reserveMessage()) {
         $(this).off("click");
+        SocketClient.setData(seat, line);
       }
       else {
         this.cancelMessage();
