@@ -3,12 +3,13 @@
     onClickSeat: function () {
       var x = $(this).data("x");
       var y = $(this).data("y");
-      this.reserveSeat(x, y);
+      UI.reserveSeat(x, y);
     },
 
     reserveSeat: function (seat, line) {
       if (this.reserveMessage()) {
-        $(this).off("click");
+        var choiceSeat = event.currentTarget;
+        $(choiceSeat).off("click").css("background-color", "Yellow");
         SocketClient.setData(seat, line);
       }
       else {
