@@ -1,5 +1,4 @@
 (function () {
-  var express = require("under");
   var Seats = {
 
     getAllData: function () {
@@ -19,10 +18,10 @@
           }).appendTo($line);
 
           if (seat == 1) {
-            $output.addClass("enable").on("click", onClickSeat);
+            $output.addClass("enable").on("click", UI.onClickSeat);
           }
           else if (seat == 2) {
-            $output.addClass("disable").on("click", onClickSeat);
+            $output.addClass("disable").on("click", UI.onClickSeat);
           }
         });
 
