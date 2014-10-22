@@ -3,9 +3,9 @@
     socket: io.connect();
 
     getData: function () {
-    },
-
-    setData: function () {
+      this.socket.on("reserve", function (data) {
+        
+      });
     }
   };
 
