@@ -7,7 +7,7 @@
 
     reserveSeat: function (line, seat) {
       if (this.reserveMessage()) {
-
+        $(this).off("click");
       }
       else {
         this.cancelMessage();
