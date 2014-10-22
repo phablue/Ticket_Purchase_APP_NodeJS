@@ -9,5 +9,5 @@
     }
   };
 
-  window.SocketClient = SocketClient
+  window.SocketClient = SocketClient;
 })();
