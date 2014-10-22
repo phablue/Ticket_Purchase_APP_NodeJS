@@ -25,11 +25,11 @@ app.use(express.Router());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
-  res.sendFile();
+  res.sendFile("seats_status.html");
 });
 
 app.get("/seats", function (req, res) {
-  res.sendFile();
+  res.send(seats);
 });
 
 server.listen(3000, function () {
@@ -37,5 +37,8 @@ server.listen(3000, function () {
 });
 
 io.on("connection", function (socket) {
-
+  socket("reserve", function (data) {
+    seats[data.y][data.x] = 2;
+    io.sockets.emit("reserve", data);
+  });
 });
