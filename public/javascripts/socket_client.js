@@ -5,6 +5,10 @@
     getData: function () {
       this.socket.on("reserve", function (data) {
       });
+    },
+
+    setData: function (seat, line) {
+      this.socket.emit("reserve", {x: seat, y: line});
     }
   };
 
