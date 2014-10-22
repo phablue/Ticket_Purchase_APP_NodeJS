@@ -1,32 +1,32 @@
 (function () {
   var Seats = {
-
     getAllData: function () {
       // dummy for IE
-      $.getJSON("/seats", {dummy: new Date().getTime()}).done(this.createSeat);
+      $.getJSON("/seats", {dummy: new Date().getTime()}).done(this.settingSeats);
     },
 
-    createSeat: function (data) {
+    settingSeats: function (data) {
       _.each(data, function (line, indexY) {
         var $line = $("<div></div>").addClass("line");
-
         _.each(line, function (seat, indexX) {
-          var $output = $("<div></div>", {
-            "class": "seat",
-            "data-x": indexX,
-            "data-y": indexY
-          }).appendTo($line);
-
-          if (seat == 1) {
-            $output.addClass("enable").on("click", UI.onClickSeat);
-          }
-          else if (seat == 2) {
-            $output.addClass("disable").on("click", UI.onClickSeat);
-          }
+          var $output = Seats.defaultSeat(indexX, indexY).appendTo($line);
+          Seats.settingByStatus(seat, $output);
         });
-
         $line.appendTo("body");
       });
+    },
+
+    settingByStatus: function (seat, output) {
+      if (seat == 1) {
+        output.addClass("enable").on("click", UI.onClickSeat);
+      }
+      else if (seat == 2) {
+        output.addClass("disable").on("click", UI.onClickSeat);
+      }
+    },
+
+    defaultSeat: function (indexX, indexY) {
+      return $("<div></div>",{"class": "seat","data-x": indexX, "data-y": indexY});
     }
   };
 
