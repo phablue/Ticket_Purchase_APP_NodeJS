@@ -19,13 +19,11 @@ var seats = [
   [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
 ];
 
-app.set("views", path.join(__dirname, "views"));
-
 app.use(express.Router());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
-  res.sendFile("seats_status.html");
+  res.sendFile(__dirname + "/views/seats_status.html");
 });
 
 app.get("/seats", function (req, res) {
@@ -37,7 +35,7 @@ server.listen(3000, function () {
 });
 
 io.on("connection", function (socket) {
-  socket("reserve", function (data) {
+  socket.on("reserve", function (data) {
     seats[data.y][data.x] = 2;
     io.sockets.emit("reserve", data);
   });
