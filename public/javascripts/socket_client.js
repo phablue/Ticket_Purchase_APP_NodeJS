@@ -1,6 +1,6 @@
 (function () {
   var SocketClient = {
-    socket: io.connect();
+    socket: io.connect(),
 
     getData: function () {
       this.socket.on("reserve", function (data) {
