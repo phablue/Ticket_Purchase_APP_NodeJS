@@ -4,7 +4,6 @@
 
     getData: function () {
       this.socket.on("reserve", function (data) {
-        
       });
     }
   };
