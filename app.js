@@ -1,9 +1,13 @@
+var path = require("path");
 var express = require("express");
 var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(express.Router());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", function (req, res) {
   res.sendFile();
