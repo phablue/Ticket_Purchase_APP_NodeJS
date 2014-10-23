@@ -13,8 +13,7 @@
       $('[data-id="purchase"]').click(function () {
         _.each(UI.chosenSeats, function (chosenSeat) {
           SocketClient.setPurchasedData(chosenSeat[0], chosenSeat[1]);
-          alert("Succefully complecated to purchase.")
-          window.location.href = "/";
+          UI.purchaseMessage();
         });
       });
     },
@@ -38,6 +37,11 @@
     markChoiceSeat: function (chosenSeat) {
       $(chosenSeat).removeClass("enable").addClass("choice");
     },
+
+    purchaseMessage: function () {
+      alert("Succefully complecated to purchase.");
+      window.location.href = "/";
+    };
 
     reserveMessage: function () {
       return confirm("Would you like to reserve a seat?");
