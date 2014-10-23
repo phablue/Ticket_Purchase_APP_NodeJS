@@ -8,3 +8,4 @@
 .enable { background: gray; }
 .enable:hover { background: black; }
 .disable { background: red; }
+.choice { background: yellow; }

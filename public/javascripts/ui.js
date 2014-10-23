@@ -7,14 +7,18 @@
     },
 
     reserveSeat: function (seat, line) {
+      var choiceSeat = event.currentTarget;
       if (this.reserveMessage()) {
-        var choiceSeat = event.currentTarget;
-        $(choiceSeat).off("click").css("background-color", "Yellow");
+        this.markChoiceSeat(choiceSeat);
         SocketClient.setData(seat, line);
       }
       else {
         this.cancelMessage();
       }
+    },
+
+    markChoiceSeat: function (choiceSeat) {
+      $(choiceSeat).removeClass("enable").addClass("choice");
     },
 
     reserveMessage: function () {
