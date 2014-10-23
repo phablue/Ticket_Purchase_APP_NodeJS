@@ -7,12 +7,8 @@
       });
     },
 
-    setChosenData: function (seat, line) {
-      this.socket.emit("choice", {x: seat, y: line});
-    },
-
-    setPurchasedData: function (seat, line) {
-      this.socket.emit("purchase", {x: seat, y: line});
+    setData: function (seat, line) {
+      this.socket.emit("reserve", {x: seat, y: line});
     }
   };
 

@@ -6,13 +6,13 @@
       var x = $(this).data("x");
       var y = $(this).data("y");
       UI.choiceSeat(x, y);
-      UI.confirmChosenSeat()
+      UI.confirmChosenSeat();
     },
 
     confirmChosenSeat: function () {
       $('[data-id="purchase"]').click(function () {
         _.each(UI.chosenSeats, function (chosenSeat) {
-          SocketClient.setPurchasedData(chosenSeat[0], chosenSeat[1]);
+          SocketClient.setData(chosenSeat[0], chosenSeat[1]);
           UI.purchaseMessage();
         });
       });
@@ -31,17 +31,16 @@
 
     setChosenSeat: function (seat, line) {
       this.chosenSeats.push([seat, line]);
-      SocketClient.setChosenData(seat, line);
     },
 
     markChoiceSeat: function (chosenSeat) {
-      $(chosenSeat).removeClass("enable").addClass("choice");
+      $(chosenSeat).addClass("choice");
     },
 
     purchaseMessage: function () {
       alert("Succefully complecated to purchase.");
       window.location.href = "/";
-    };
+    },
 
     reserveMessage: function () {
       return confirm("Would you like to reserve a seat?");
