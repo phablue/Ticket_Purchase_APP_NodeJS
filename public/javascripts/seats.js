@@ -21,7 +21,7 @@
         output.addClass("enable").on("click", UI.onClickSeat);
       }
       else if (seat == 2) {
-        output.addClass("disable").on("click", UI.onClickSeat);
+        output.addClass("disable").off("click");
       }
     },
 
