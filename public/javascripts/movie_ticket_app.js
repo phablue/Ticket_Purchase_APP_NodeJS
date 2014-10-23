@@ -1,3 +1,0 @@
-$(function(){
-  Seats.getAllData();
-});
