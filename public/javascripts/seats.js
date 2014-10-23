@@ -12,7 +12,7 @@
           var $output = Seats.defaultSeat(indexX, indexY).appendTo($line);
           Seats.settingByStatus(seat, $output);
         });
-        $line.appendTo("body");
+        $line.insertBefore("button");
       });
     },
 
