@@ -1,6 +1,6 @@
 (function () {
   var Seats = {
-    getAllData: function () {
+    getAllSeatsStatus: function () {
       // dummy for IE
       $.getJSON("/seats", {dummy: new Date().getTime()}).done(this.settingSeats);
     },

@@ -1,24 +1,31 @@
 (function () {
   var UI = {
+    chosenSeats: [],
+
     onClickSeat: function () {
       var x = $(this).data("x");
       var y = $(this).data("y");
-      UI.reserveSeat(x, y);
+      UI.choiceSeat(x, y);
     },
 
-    reserveSeat: function (seat, line) {
-      var choiceSeat = event.currentTarget;
+    choiceSeat: function (seat, line) {
+      var chosenSeat = event.currentTarget;
       if (this.reserveMessage()) {
-        this.markChoiceSeat(choiceSeat);
-        SocketClient.setData(seat, line);
+        this.markChoiceSeat(chosenSeat);
+        this.setChosenSeat(seat, line);
       }
       else {
         this.cancelMessage();
       }
     },
 
-    markChoiceSeat: function (choiceSeat) {
-      $(choiceSeat).removeClass("enable").addClass("choice");
+    setChosenSeat: function (seat, line) {
+      this.chosenSeats.push([seat, line]);
+      SocketClient.setData(seat, line);
+    },
+
+    markChoiceSeat: function (chosenSeat) {
+      $(chosenSeat).removeClass("enable").addClass("choice");
     },
 
     reserveMessage: function () {

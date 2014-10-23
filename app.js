@@ -35,7 +35,7 @@ server.listen(3000, function () {
 });
 
 io.on("connection", function (socket) {
-  socket.on("reserve", function (data) {
+  socket.on("choice", function (data) {
     seats[data.y][data.x] = 2;
     io.sockets.emit("reserve", data);
   });
