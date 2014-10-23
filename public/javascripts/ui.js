@@ -6,6 +6,17 @@
       var x = $(this).data("x");
       var y = $(this).data("y");
       UI.choiceSeat(x, y);
+      UI.confirmChosenSeat()
+    },
+
+    confirmChosenSeat: function () {
+      $('[data-id="purchase"]').click(function () {
+        _.each(UI.chosenSeats, function (chosenSeat) {
+          SocketClient.setPurchasedData(chosenSeat[0], chosenSeat[1]);
+          alert("Succefully complecated to purchase.")
+          window.location.href = "/";
+        });
+      });
     },
 
     choiceSeat: function (seat, line) {
@@ -21,7 +32,7 @@
 
     setChosenSeat: function (seat, line) {
       this.chosenSeats.push([seat, line]);
-      SocketClient.setData(seat, line);
+      SocketClient.setChosenData(seat, line);
     },
 
     markChoiceSeat: function (chosenSeat) {

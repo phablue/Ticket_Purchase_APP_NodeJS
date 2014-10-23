@@ -39,4 +39,8 @@ io.on("connection", function (socket) {
     seats[data.y][data.x] = 2;
     io.sockets.emit("reserve", data);
   });
+  socket.on("purchase", function (data) {
+    seats[data.y][data.x] = 3;
+    io.sockets.emit("reserve", data);
+  });
 });

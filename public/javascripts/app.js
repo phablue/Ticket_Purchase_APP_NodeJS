@@ -1,3 +1,3 @@
 $(function(){
-  Seats.getAllData();
+  Seats.getAllSeatsStatus();
 });
