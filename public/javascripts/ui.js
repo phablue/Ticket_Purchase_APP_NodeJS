@@ -40,10 +40,6 @@
       this.cancelChosenSeatMessage();
     },
 
-    unmarkCancelSeat: function (chosenSeat) {
-      $(chosenSeat).removeClass("choice");
-    },
-
     markChoiceSeat: function (chosenSeat) {
       $(chosenSeat).addClass("choice");
     },
