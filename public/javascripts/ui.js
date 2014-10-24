@@ -1,51 +1,49 @@
 (function () {
   var UI = {
     onClickSeat: function () {
-      var x = $(this).data("x");
-      var y = $(this).data("y");
-      UI.reserveSeat(x, y);
+      UI.reserveSeat();
       UI.confirmChosenSeat();
     },
 
     confirmChosenSeat: function () {
       $('[data-id="purchase"]').click(function () {
-        _.each($(".choice"), function (chosenSeat) {
-          SocketClient.setData($(chosenSeat).data("x"), $(chosenSeat).data("y"));
+        _.each($(".choice"), function (chosenSpot) {
+          SocketClient.setData($(chosenSpot).data("x"), $(chosenSpot).data("y"));
         });
         UI.comfirmMessage();
       });
     },
 
-    reserveSeat: function (seat, line) {
-      var chosenSeat = event.currentTarget;
-      if ($(chosenSeat).hasClass("choice")) {
-        this.cancelChosenSeat(chosenSeat, seat, line);
+    reserveSeat: function () {
+      var chosenSpot = event.currentTarget;
+      if ($(chosenSpot).hasClass("choice")) {
+        this.cancelChosenSeat(chosenSpot);
       }
       else {
-        this.choiceSeat(chosenSeat, seat, line);
+        this.choiceSeat(chosenSpot);
       }
     },
 
-    choiceSeat: function (chosenSeat, seat, line) {
+    choiceSeat: function (chosenSpot) {
       if (this.reserveMessage()) {
-        this.markChoiceSeat(chosenSeat);
+        this.markChoiceSeat(chosenSpot);
       }
       else {
         this.cancelMessage();
       }
     },
 
-    cancelChosenSeat: function (chosenSeat, seat, line) {
-      this.unmarkCancelSeat(chosenSeat);
+    cancelChosenSeat: function (chosenSpot) {
+      this.unmarkCancelSeat(chosenSpot);
       this.cancelChosenSeatMessage();
     },
 
-    markChoiceSeat: function (chosenSeat) {
-      $(chosenSeat).addClass("choice");
+    markChoiceSeat: function (chosenSpot) {
+      $(chosenSpot).addClass("choice");
     },
 
-    unmarkCancelSeat: function (chosenSeat) {
-      $(chosenSeat).removeClass("choice");
+    unmarkCancelSeat: function (chosenSpot) {
+      $(chosenSpot).removeClass("choice");
     },
 
     cancelChosenSeatMessage: function () {
