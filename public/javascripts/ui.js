@@ -1,7 +1,5 @@
 (function () {
   var UI = {
-    // chosenSeats: [],
-
     onClickSeat: function () {
       var x = $(this).data("x");
       var y = $(this).data("y");
