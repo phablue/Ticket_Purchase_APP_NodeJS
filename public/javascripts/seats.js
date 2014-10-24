@@ -18,10 +18,10 @@
 
     settingByStatus: function (seat, output) {
       if (seat == 1) {
-        output.addClass("enable").on("click", UI.onClickSeat);
+        output.addClass("enable").on("click", UI.reserveSeat);
       }
       else if (seat == 2) {
-        output.addClass("disable").off("click");
+        output.addClass("disable");
       }
     },
 

@@ -1,35 +1,35 @@
 (function () {
   var UI = {
-    onClickSeat: function () {
-      UI.reserveSeat();
-      UI.confirmChosenSeat();
-    },
-
     confirmChosenSeat: function () {
       $('[data-id="purchase"]').click(function () {
-        _.each($(".choice"), function (chosenSpot) {
-          SocketClient.setData($(chosenSpot).data("x"), $(chosenSpot).data("y"));
-        });
-        UI.comfirmMessage();
+        if ($(".choice").length != 0) {
+          UI.setPurchasedSeat();
+        }
+        else {
+          UI.comfirmErrorMessage();
+        }
       });
     },
 
+    setPurchasedSeat: function () {
+      _.each($(".choice"), function (chosenSpot) {
+        SocketClient.setData($(chosenSpot).data("x"), $(chosenSpot).data("y"));
+      });
+      UI.comfirmMessage();
+    },
+
     reserveSeat: function () {
-      var chosenSpot = event.currentTarget;
-      if ($(chosenSpot).hasClass("choice")) {
-        this.cancelChosenSeat(chosenSpot);
+      if ($(this).hasClass("choice")) {
+        UI.cancelChosenSeat(this);
       }
       else {
-        this.choiceSeat(chosenSpot);
+        UI.choiceSeat(this);
       }
     },
 
     choiceSeat: function (chosenSpot) {
       if (this.reserveMessage()) {
         this.markChoiceSeat(chosenSpot);
-      }
-      else {
-        this.cancelMessage();
       }
     },
 
@@ -55,12 +55,12 @@
       window.location.href = "/";
     },
 
-    reserveMessage: function () {
-      return confirm("Would you like to reserve a seat?");
+    comfirmErrorMessage: function () {
+      alert("You must choose a seat.");
     },
 
-    cancelReserveMessage: function () {
-      alert("Cancel a reservation.");
+    reserveMessage: function () {
+      return confirm("Would you like to reserve a seat?");
     }
   };
 
