@@ -1,12 +1,14 @@
 .content {
-  background: url("../images/white_wall_hash_@2X.png");
-  border: 1.5px solid #959595;
-  border-radius: 5px;
+  border: 1.8px solid #959595;
+  border-radius: 3px;
   height: 80%;
   margin: 50px;
 }
 
-.header { background: url("../images/brushed_@2X.png"); }
+.header {
+  background: url("../images/brushed_@2X.png");
+  border-radius: 3px;
+}
 
 .title {
   color: #423F43;
@@ -31,9 +33,22 @@
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 3px;
   width: 300px;
+}
+
+.play-icon {
+  height: 13px;
+  padding-right: 5px;
+}
+
+.play-trailer {
+  color: #423F43;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .movie-details {
