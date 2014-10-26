@@ -51,6 +51,11 @@
   text-decoration: none;
 }
 
+.trailer {
+  max-width: 640px;
+  max-height: 360px;
+}
+
 .movie-details {
   height: 680px;
   position: absolute;
