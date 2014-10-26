@@ -1,11 +1,12 @@
 .content {
+  background: url("../images/white_wall_hash_@2X.png");
   border: 1.5px solid #959595;
   border-radius: 5px;
   height: 80%;
   margin: 50px;
 }
 
-.header { background-color: #EFEFF0;}
+.header { background: url("../images/brushed_@2X.png"); }
 
 .title {
   color: #423F43;
@@ -27,9 +28,11 @@
 }
 
 .movis-poster {
+  background-color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 8px;
+  margin-bottom: 20px;
+  padding: 3px;
   width: 300px;
 }
 
