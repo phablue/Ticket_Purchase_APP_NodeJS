@@ -1,0 +1,27 @@
+.line { overflow: hidden; }
+.seat {
+  margin: 2px; float: left;
+  width: 30px; height: 30px;
+  border-radius: 3px;
+}
+
+.enable { background: gray; }
+.enable:hover { background: black; }
+.disable { background: red; }
+.choice { background: yellow; }
+.btn {
+  cursor: pointer;
+  color: #333;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 6px 12px;
+  text-align: center;
+}
