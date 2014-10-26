@@ -23,11 +23,15 @@ app.use(express.Router());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/views/seats.html");
+  res.sendFile(__dirname + "/views/movie.html");
 });
 
 app.get("/seats", function (req, res) {
   res.send(seats);
+});
+
+app.get("/seats_state", function (req, res) {
+  res.sendFile(__dirname + "/views/seats.html");
 });
 
 server.listen(3000, function () {
