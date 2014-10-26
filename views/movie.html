@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Movie Ticket Purchase APP</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
+    <link rel="stylesheet" href="../public/stylesheets/app.css" />
   </head>
   <body>
     <div class="content">
@@ -10,8 +10,10 @@
         <h1 class="title">Guardians Of The Galaxy</h1>
       </div>
       <div class="body">
-        <img class="movis-poster" src="../public/images/Guardians.jpg" />
-        <a class="play-trailer" href="trailer.html">Play The Trailer</a>
+        <div class="multi-media">
+          <img class="movis-poster" src="../public/images/Guardians.jpg" /><br>
+          <a class="play-trailer" href="trailer.html">Play The Trailer</a>
+        </div>
         <div class="movie-details">
           <label>Synopsis</label>
           <p class="description">
@@ -22,6 +24,14 @@
           <p><label>Director</label>James Gunn</p>
           <p><label>Cast</label>Zoe Saldana, Chris Pratt, Dave Bautista</p>
           <p><label>Release Date</label>August 1, 2014</p>
+        </div>
+        <div class="reserve-ticket">
+          <label>Show Times</label>
+          <form>
+            <input> date </input><br><!-- show movie date -->
+            <input> time</input><br><!-- show movie time -->
+            <input type="submit"></input>
+          </form>
         </div>
       </div>
     </div>

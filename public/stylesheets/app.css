@@ -25,3 +25,67 @@
   padding: 6px 12px;
   text-align: center;
 }
+
+.content {
+  border: 1.5px solid #959595;
+  border-radius: 5px;
+  height: 80%;
+  margin: 50px;
+}
+
+.header { background-color: #EFEFF0;}
+
+.title {
+  color: #423F43;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 50px;
+  margin: 0px;
+  padding: 10px;
+  text-shadow: 1px 1px #AAA8AB;
+}
+
+.body {
+  padding: 30px;
+}
+
+.multi-media {
+  background-color: red;
+  height: 680px;
+  position: absolute;
+  width: 300px;
+}
+
+.movie-details {
+  height: 680px;
+  position: absolute;
+  left: 400px;
+  width: 800px;
+}
+
+.reserve-ticket {
+  background-color: yellow;
+  position: absolute;
+  left: 1200px; 
+}
+
+p {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+label {
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: bold;
+  color: #959595;
+  padding-left: 30px;
+  padding-right: 20px;
+  text-transform: uppercase;
+}
+
+.description {
+  line-height: 18px;
+  margin-top: 5px;
+  padding-left: 30px;
+  padding-right: 10px;
+}
