@@ -13,7 +13,7 @@
 
     setPurchasedSeat: function () {
       _.each($(".choice"), function (chosenSpot) {
-        SocketClient.setData($(chosenSpot).data("x"), $(chosenSpot).data("y"));
+        SocketClient.setDataForPurchase($(chosenSpot).data("x"), $(chosenSpot).data("y"));
       });
       UI.comfirmMessage();
     },
@@ -29,11 +29,13 @@
 
     choiceSeat: function (chosenSpot) {
       if (this.reserveMessage()) {
+        SocketClient.setDataForReserve($(chosenSpot).data("x"), $(chosenSpot).data("y"));
         this.markChoiceSeat(chosenSpot);
       }
     },
 
     cancelChosenSeat: function (chosenSpot) {
+      SocketClient.setDataForCancel($(chosenSpot).data("x"), $(chosenSpot).data("y"));
       this.unmarkCancelSeat(chosenSpot);
       this.cancelChosenSeatMessage();
     },

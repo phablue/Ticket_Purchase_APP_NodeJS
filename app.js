@@ -43,8 +43,18 @@ server.listen(3000, function () {
 });
 
 io.on("connection", function (socket) {
+  socket.on("purchase", function (data) {
+    seats[data.y][data.x] = 3;
+    io.sockets.emit("reserve", data);
+  });
+
   socket.on("reserve", function (data) {
     seats[data.y][data.x] = 2;
+    io.sockets.emit("reserve", data);
+  });
+
+  socket.on("cancel", function (data) {
+    seats[data.y][data.x] = 1;
     io.sockets.emit("reserve", data);
   });
 });

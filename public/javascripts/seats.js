@@ -20,7 +20,7 @@
       if (seat == 1) {
         output.addClass("enable").on("click", UI.reserveSeat);
       }
-      else if (seat == 2) {
+      else if (seat == 2 || seat == 3) {
         output.addClass("disable");
       }
     },
