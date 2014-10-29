@@ -1,5 +1,7 @@
 var jade = require("jade");
 var path = require("path");
+var mysql = require("mysql");
+var client = mysql.createConnection({user: "root", password: "root", database: "Movie_Theater"});
 var express = require("express");
 var app = express();
 var server = require("http").Server(app);
@@ -27,7 +29,10 @@ app.use(express.Router());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
-  res.render('movies');
+  client.query("select * from movies", function (err, result) {
+    if (err) throw err;
+    res.render("movies", {data: result});
+  });
 });
 
 app.get("/seats", function (req, res) {
