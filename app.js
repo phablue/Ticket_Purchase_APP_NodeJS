@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", function (req, res) {
   client.query("select * from movies", function (err, result) {
     if (err) throw err;
-    res.render("movies", {data: result});
+    res.render("movies", {movies: result});
   });
 });
 

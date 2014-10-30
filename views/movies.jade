@@ -13,13 +13,18 @@ block movies
         p#picked-date
         input#date-select(type="hidden")
       ul.movies
-        li.movie
-          h3.movie-title
-            span.moive-information
-          img.movie-poster(src="")
-          table.movie-showtime
-            tr
-              td
-              td
-              td
+        for movie in movies
+          li.movie
+            h3.movie-title=movie.name
+              span.moive-information
+                label RunTime
+                =movie.runtime
+                lable Rate
+                =movie.rate
+            img.movie-poster(src="#{movie.poster}")
+            table.movie-showtime
+              tr
+                td
+                td
+                td
     .footer
