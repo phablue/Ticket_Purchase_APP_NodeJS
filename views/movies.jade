@@ -2,29 +2,25 @@ extends app
 
 block movies
   .container
-    .header
-      h2
-        span S
-        | how
-        span T
-        | imes
-    .body
-      form.movies-schedule
-        p#picked-date
+    .movies
+      form.schedule
+        p=date
+          a
+            i.fa.fa-calendar
         input#date-select(type="hidden")
-      ul.movies
+      ul.list-unstyled
         for movie in movies
           li.movie
-            h3.movie-title=movie.name
-              span.moive-information
+            h2.movie-title=movie.name
+            img.img-rounded.movie-poster(src="#{movie.poster}")
+            p.moive-information
                 label RunTime
                 =movie.runtime
-                lable Rate
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                label Rate
                 =movie.rate
-            img.movie-poster(src="#{movie.poster}")
             table.movie-showtime
               tr
                 td
                 td
                 td
-    .footer

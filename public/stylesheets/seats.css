@@ -1,10 +1,12 @@
+.seats {
+  margin-top: 95px;
+}
 .line { overflow: hidden; }
 .seat {
   margin: 2px; float: left;
   width: 30px; height: 30px;
   border-radius: 3px;
 }
-
 .enable { background: gray; }
 .enable:hover { background: black; }
 .disable { background: red; }

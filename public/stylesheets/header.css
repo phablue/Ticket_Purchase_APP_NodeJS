@@ -1,0 +1,16 @@
+.navbar-header {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.navbar-default .navbar-brand {
+  color: #A80000;
+  font-family: "Lato", sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+}
+.navbar-default .navbar-brand span{
+  font-family: "Bree Serif", serif;
+  font-size: 55px;
+  font-weight: 400;
+}

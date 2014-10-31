@@ -1,0 +1,59 @@
+.movies{
+  margin-top: 95px;
+}
+.schedule {
+  margin-bottom: 20px;
+}
+.schedule p {
+  display: block;
+  width: 220px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.schedule a {
+  color: #515151;
+}
+.schedule a:hover {
+  color: #A40802;
+  cursor: pointer;
+}
+.fa.fa-calendar {
+  margin-left: 16px;
+}
+.list-unstyled {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
+}
+.movie {
+  border-bottom: 1.5px solid #ccc;
+  padding: 15px;
+  padding-bottom: 60px;
+  padding-top: 10px;
+}
+.movie-title {
+  font-weight: 700;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.movie-poster {
+  width: 200px;
+  height: 270px;
+}
+.moive-information {
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 20px;
+}
+label {
+  color: #757A7C;
+  font-size: 15px;
+  padding-right: 7px;
+}
+

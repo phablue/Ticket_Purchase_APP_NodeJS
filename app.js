@@ -1,4 +1,5 @@
 var jade = require("jade");
+var moment = require("moment");
 var path = require("path");
 var mysql = require("mysql");
 var client = mysql.createConnection({user: "root", password: "root", database: "Movie_Theater"});
@@ -31,7 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", function (req, res) {
   client.query("select * from movies", function (err, result) {
     if (err) throw err;
-    res.render("movies", {movies: result});
+    res.render("movies", {movies: result, date: moment().format('dddd MMM Do YYYY')});
   });
 });
 
