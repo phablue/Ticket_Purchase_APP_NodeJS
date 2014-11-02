@@ -23,4 +23,7 @@ block movies
                 -var shows = _.filter(movie_showing, function(show){ return show.movie_id == movie.id; });
                   for show in shows
                     td
-                      a=show.show_time.slice(1, 5)
+                      if moment(show.show_time, "hh:mm") >= moment()
+                        a=show.show_time.slice(0, 5)
+                      else
+                        =show.show_time.slice(0, 5)
