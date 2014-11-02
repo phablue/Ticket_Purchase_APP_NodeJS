@@ -1,5 +1,4 @@
 var jade = require("jade");
-var moment = require("moment");
 var path = require("path");
 var mysql = require("mysql");
 var client = mysql.createConnection({user: "root", password: "root", database: "Movie_Theater"});
@@ -26,13 +25,21 @@ var seats = [
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.locals._ = require('underscore');
+app.locals.moment = require("moment");
+
 app.use(express.Router());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
-  client.query("select * from movies", function (err, result) {
+  client.query("select * from movies", function (err, movies) {
     if (err) throw err;
-    res.render("movies", {movies: result, date: moment().format('dddd MMM Do YYYY')});
+    client.query("select * from movie_showing", function (err, movie_showing) {
+      if (err) throw err;
+      res.render("movies", {
+        movies: movies,
+        movie_showing: movie_showing });
+    });    
   });
 });
 

@@ -4,7 +4,7 @@ block movies
   .container
     .movies
       form.schedule
-        p=date
+        p=moment().format('dddd MMM DD YYYY')
           a
             i.fa.fa-calendar
         input#date-select(type="hidden")
@@ -16,11 +16,11 @@ block movies
             p.moive-information
                 label RunTime
                 =movie.runtime
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                label Rate
+                label &nbsp&nbsp&nbsp&nbsp&nbsp&nbspRate
                 =movie.rate
-            table.movie-showtime
+            table.movie-showing
               tr
-                td
-                td
-                td
+                -var shows = _.filter(movie_showing, function(show){ return show.movie_id == movie.id; });
+                  for show in shows
+                    td
+                      a=show.show_time.slice(1, 5)

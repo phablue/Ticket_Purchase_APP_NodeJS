@@ -56,4 +56,20 @@ label {
   font-size: 15px;
   padding-right: 7px;
 }
-
+.movie-showing {
+  display: block;
+  position: relative;
+  left: 250px;
+  top: -300px;
+}
+.movie-showing a {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 15px;
+}
+.movie-showing a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
