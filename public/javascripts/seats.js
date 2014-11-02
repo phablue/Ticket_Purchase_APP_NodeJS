@@ -18,7 +18,7 @@
 
     settingByStatus: function (seat, output) {
       if (seat == 1) {
-        output.addClass("enable").on("click", UI.reserveSeat);
+        output.addClass("enable").on("click", UI.reserve);
       }
       else if (seat == 2 || seat == 3) {
         output.addClass("disable");

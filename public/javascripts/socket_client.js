@@ -7,7 +7,7 @@
       });
     },
 
-    setDataForPurchase: function (seat, line) {
+    setDataForConfirm: function (seat, line) {
       this.socket.emit("purchase", {x: seat, y: line});
     },
 

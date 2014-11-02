@@ -3,22 +3,22 @@
     confirmChosenSeat: function () {
       $('[data-id="purchase"]').click(function () {
         if ($(".choice").length != 0) {
-          UI.setPurchasedSeat();
+          UI.confirmReservation();
         }
         else {
-          UI.comfirmErrorMessage();
+          UI.confirmReservationErrorMessage();
         }
       });
     },
 
-    setPurchasedSeat: function () {
+    confirmReservation: function () {
       _.each($(".choice"), function (chosenSpot) {
-        SocketClient.setDataForPurchase($(chosenSpot).data("x"), $(chosenSpot).data("y"));
+        SocketClient.setDataForConfirm($(chosenSpot).data("x"), $(chosenSpot).data("y"));
       });
-      UI.comfirmMessage();
+      UI.confirmReservationMessage();
     },
 
-    reserveSeat: function () {
+    reserve: function () {
       if ($(this).hasClass("choice")) {
         UI.cancelChosenSeat(this);
       }
@@ -52,12 +52,12 @@
       alert("Cancel a chosen reservaion seat");
     },
 
-    comfirmMessage: function () {
+    confirmReservationMessage: function () {
       alert("Succefully complecated to reserve.");
       window.location.href = "/";
     },
 
-    comfirmErrorMessage: function () {
+    confirmReservationErrorMessage: function () {
       alert("You must choose a seat.");
     },
 
