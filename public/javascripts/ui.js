@@ -1,9 +1,9 @@
 (function () {
   var UI = {
-    confirmChosenSeat: function () {
+    confirmReservation: function () {
       $('[data-id="purchase"]').click(function () {
         if ($(".choice").length != 0) {
-          UI.confirmReservation();
+          Seats.confirm();
         }
         else {
           UI.confirmReservationErrorMessage();
@@ -11,33 +11,13 @@
       });
     },
 
-    confirmReservation: function () {
-      _.each($(".choice"), function (chosenSpot) {
-        SocketClient.setDataForConfirm($(chosenSpot).data("x"), $(chosenSpot).data("y"));
-      });
-      UI.confirmReservationMessage();
-    },
-
     reserve: function () {
       if ($(this).hasClass("choice")) {
-        UI.cancelChosenSeat(this);
+        Seats.cancelChoice(this);
       }
       else {
-        UI.choiceSeat(this);
+        Seats.choice(this);
       }
-    },
-
-    choiceSeat: function (chosenSpot) {
-      if (this.reserveMessage()) {
-        SocketClient.setDataForReserve($(chosenSpot).data("x"), $(chosenSpot).data("y"));
-        this.markChoiceSeat(chosenSpot);
-      }
-    },
-
-    cancelChosenSeat: function (chosenSpot) {
-      SocketClient.setDataForCancel($(chosenSpot).data("x"), $(chosenSpot).data("y"));
-      this.unmarkCancelSeat(chosenSpot);
-      this.cancelChosenSeatMessage();
     },
 
     markChoiceSeat: function (chosenSpot) {

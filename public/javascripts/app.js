@@ -1,4 +1,4 @@
 $(function(){
-  Seats.getAllSeatsStatus();
-  UI.confirmChosenSeat();
+  Seats.getStatus();
+  UI.confirmReservation();
 });
