@@ -20,6 +20,16 @@
       }
     },
 
+    pickShowDate: function () {
+      $("#datepicker").datepicker({
+        dateFormat: "DD M dd yy",
+        showOn: "button",
+        buttonImage: "images/glyphicons_045_calendar.png",
+        buttonImageOnly: true,
+        buttonText: "Select date"
+      });
+    },
+
     markChoiceSeat: function (chosenSpot) {
       $(chosenSpot).addClass("choice");
     },

@@ -1,3 +1,14 @@
+#ui-datepicker-div {
+  left: 420px !important;
+  top: 90px !important;
+}
+.ui-datepicker-trigger {
+  height: 15px;
+  width: 15px;
+  position: relative;
+  top: -28px;
+  left: 195px;
+}
 .movies{
   margin-top: 95px;
 }
@@ -6,7 +17,7 @@
 }
 .schedule #datepicker {
   display: block;
-  width: 220px;
+  width: 230px;
   height: 34px;
   padding: 6px 12px;
   font-size: 15px;

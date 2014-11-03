@@ -4,9 +4,6 @@ block movies
   .container
     .movies
       form.schedule
-        //- p=moment().format('dddd MMM DD YYYY')
-        //-   a
-        //-     i.fa.fa-calendar
         input#datepicker(type="text", placeholder="#{moment().format('dddd MMM DD YYYY')}")
       ul.list-unstyled
         for movie in movies
