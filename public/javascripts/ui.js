@@ -1,7 +1,7 @@
 (function () {
   var UI = {
     confirmReservation: function () {
-      $('[data-id="purchase"]').click(function () {
+      $('[data-id="confirm"]').click(function () {
         if ($(".choice").length != 0) {
           Seats.confirm();
         }
@@ -12,12 +12,15 @@
     },
 
     reserve: function () {
-      if ($(this).hasClass("choice")) {
-        Seats.cancelChoice(this);
-      }
-      else {
-        Seats.choice(this);
-      }
+      $(".enable").on("click", function () {
+        console.log(this)
+        if ($(this).hasClass("choice")) {
+          Seats.cancelChoice(this);
+        }
+        else {
+          Seats.choice(this);
+        }
+      });
     },
 
     pickShowDate: function () {

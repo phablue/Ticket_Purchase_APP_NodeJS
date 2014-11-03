@@ -7,21 +7,6 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-var seats = [
-  [1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-];
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -43,12 +28,13 @@ app.get("/", function (req, res) {
   });
 });
 
-app.get("/seats", function (req, res) {
-  res.send(seats);
-});
-
-app.get("/selectseat", function (req, res) {
-  res.render('seats');
+app.get("/selectseat/:id/:date/:time", function (req, res, next) {
+  client.query("select seats from movie_showing where movie_id = ? and show_date = ? and show_time = ?",
+    [req.param("id"), req.param("date"), req.param("time")]
+    , function (err, result) {
+      if (err) throw err;
+      res.render("seats", {movie_seats: result[0].seats}); 
+    });
 });
 
 server.listen(3000, function () {

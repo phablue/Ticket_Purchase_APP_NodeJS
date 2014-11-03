@@ -3,4 +3,13 @@ extends app
 block seats
   .container
     .seats
-      button.btn(data-id='purchase') PURCHASED
+      each line, indexY in eval(movie_seats)
+        .line
+          each seat, indexX in line
+            if seat == 1
+              .seat.enable(data-x="#{indexX}", data-y="#{indexY}")
+            else if (seat == 2 || seat == 3)
+              .seat.disable(data-x="#{indexX}", data-y="#{indexY}")
+            else
+              .seat(data-x="#{indexX}", data-y="#{indexY}")
+      button.btn(data-id='confirm') CONFIRM

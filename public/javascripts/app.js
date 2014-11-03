@@ -1,5 +1,5 @@
 $(function(){
   UI.pickShowDate();
-  Seats.getStatus();
+  UI.reserve();
   UI.confirmReservation();
 });
