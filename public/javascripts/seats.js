@@ -18,10 +18,6 @@
       SocketClient.setDataForCancel($(chosenSpot).data("x"), $(chosenSpot).data("y"));
       UI.unmarkCancelSeat(chosenSpot);
       UI.cancelChosenSeatMessage();
-    },
-
-    clickSeat: function () {
-      $(".enable").on("click", UI.reserve);
     }
   };
 

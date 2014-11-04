@@ -3,13 +3,14 @@ extends app
 block seats
   .container
     .seats
-      each line, indexY in eval(movie_seats)
-        .line
-          each seat, indexX in line
-            if seat == 1
-              .seat.enable(data-x="#{indexX}", data-y="#{indexY}")
-            else if (seat == 2 || seat == 3)
-              .seat.disable(data-x="#{indexX}", data-y="#{indexY}")
-            else
-              .seat(data-x="#{indexX}", data-y="#{indexY}")
-      button.btn(data-id='confirm') CONFIRM
+      form(method="post")
+        each line, indexY in movie_seats
+          .line
+            each seat, indexX in line
+              if seat == 1
+                .seat.enable(data-x="#{indexX}", data-y="#{indexY}")
+              else if (seat == 2 || seat == 3)
+                .seat.disable(data-x="#{indexX}", data-y="#{indexY}")
+              else
+                .seat(data-x="#{indexX}", data-y="#{indexY}")
+        button.btn(type="submit", data-id='confirm') CONFIRM

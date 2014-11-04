@@ -7,6 +7,8 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
+var seats = [];
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -28,12 +30,22 @@ app.get("/", function (req, res) {
   });
 });
 
-app.get("/selectseat/:id/:date/:time", function (req, res, next) {
+app.get("/selectseat", function (req, res) {
   client.query("select seats from movie_showing where movie_id = ? and show_date = ? and show_time = ?",
-    [req.param("id"), req.param("date"), req.param("time")]
+    [req.query.id, req.query.date, req.query.time]
     , function (err, result) {
       if (err) throw err;
-      res.render("seats", {movie_seats: result[0].seats}); 
+      seats = eval(result[0].seats);
+      res.render("seats", {movie_seats: seats}); 
+    });
+});
+
+app.post("/selectseat", function (req, res) {
+  client.query("update movie_showing set seats = ? where movie_id = ? and show_date = ? and show_time = ?",
+    [JSON.stringify(seats), req.query.id, req.query.date, req.query.time]
+    , function (err, result) {
+      if (err) throw err;
+      res.redirect("/");
     });
 });
 

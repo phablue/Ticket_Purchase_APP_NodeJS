@@ -12,8 +12,7 @@
     },
 
     reserve: function () {
-      $(".enable").on("click", function () {
-        console.log(this)
+      $(".enable").on("click", function() {
         if ($(this).hasClass("choice")) {
           Seats.cancelChoice(this);
         }
@@ -47,7 +46,6 @@
 
     confirmReservationMessage: function () {
       alert("Succefully complecated to reserve.");
-      window.location.href = "/";
     },
 
     confirmReservationErrorMessage: function () {

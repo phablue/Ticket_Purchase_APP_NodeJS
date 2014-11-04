@@ -20,8 +20,8 @@ block movies
                 -var shows = _.filter(movie_showing, function(show){ return show.movie_id == movie.id; })
                   for show in shows
                     td
-                      if moment(show.show_time.toString(), "hh:mm") <= moment()
+                      if moment(show.show_time.toString(), "hh:mm") >= moment()
                         - var date = moment(show.show_date).format("YYYY-MM-DD")
-                        a(href="/selectseat/#{show.movie_id}/#{date}/#{show.show_time}")=show.show_time.slice(0, 5)
+                        a(href="/selectseat?id=#{show.movie_id}&date=#{date}&time=#{show.show_time}")=show.show_time.slice(0, 5)
                       else
                         =show.show_time.slice(0, 5)
