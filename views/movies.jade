@@ -3,10 +3,11 @@ extends app
 block movies
   .container
     .movies
-      form.schedule
+      .schedule
         input#datepicker(type="text", placeholder="#{moment().format('dddd MMM DD YYYY')}")
       ul.list-unstyled
         for movie in movies
+
           li.movie
             h2.movie-title=movie.name
             img.img-rounded.movie-poster(src="#{movie.poster}")
