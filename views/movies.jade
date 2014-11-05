@@ -4,21 +4,20 @@ block movies
   .container
     .movies
       .schedule
-        input#datepicker(type="text", placeholder="#{moment().format('dddd MMM DD YYYY')}")
+        input#datepicker(type="text", value="#{moment().format('dddd MMM DD YYYY')}")
       ul.list-unstyled
         for movie in movies
-
-          li.movie
-            h2.movie-title=movie.name
-            img.img-rounded.movie-poster(src="#{movie.poster}")
-            p.moive-information
-                label RunTime
-                =movie.runtime
-                label &nbsp&nbsp&nbsp&nbsp&nbsp&nbspRate
-                =movie.rate
-            table.movie-showing
-              tr
-                -var shows = _.filter(movie_showing, function(show){ return show.movie_id == movie.id; })
+          - var shows = _.filter(movie_showing, function(show){ return show.movie_id == movie.id; })
+            li.movie(data-id="#{movie.last_show_date}")
+              h2.movie-title=movie.name
+              img.img-rounded.movie-poster(src="#{movie.poster}")
+              p.moive-information
+                  label RunTime
+                  =movie.runtime
+                  label &nbsp&nbsp&nbsp&nbsp&nbsp&nbspRate
+                  =movie.rate
+              table.movie-showing
+                tr
                   for show in shows
                     td
                       if moment(show.show_time.toString(), "hh:mm") >= moment()

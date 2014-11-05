@@ -1,5 +1,11 @@
 (function () {
   var UI = {
+    mainPage: function () {
+      this.pickShowDate();
+      this.reserve();
+      this.confirmReservation();
+    },
+
     confirmReservation: function () {
       $('[data-id="confirm"]').click(function () {
         if ($(".choice").length != 0) {
