@@ -21,11 +21,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", function (req, res) {
   client.query("select * from movies", function (err, movies) {
     if (err) throw err;
-    client.query("select * from movie_showing", function (err, movie_showing) {
+    client.query("select * from movie_showing", function (err, movieShowing) {
       if (err) throw err;
       res.render("movies", {
         movies: movies,
-        movie_showing: movie_showing });
+        movie_showing: movieShowing });
     });    
   });
 });

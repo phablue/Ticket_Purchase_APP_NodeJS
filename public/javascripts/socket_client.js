@@ -17,7 +17,7 @@
 
     setDataForCancel: function (seat, line) {
       this.socket.emit("cancel", {x: seat, y: line});
-    }
+    },
   };
 
   window.SocketClient = SocketClient;

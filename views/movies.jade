@@ -4,11 +4,11 @@ block movies
   .container
     .movies
       .schedule
-        input#datepicker(type="text", value="#{moment().format('dddd MMM DD YYYY')}")
+        input#datepicker(type="text", value="#{moment(selectedDate).format('dddd MMM DD YYYY')}")
       ul.list-unstyled
         for movie in movies
           - var shows = _.filter(movie_showing, function(show){ return show.movie_id == movie.id; })
-            li.movie(data-id="#{movie.last_show_date}")
+            li.movie
               h2.movie-title=movie.name
               img.img-rounded.movie-poster(src="#{movie.poster}")
               p.moive-information
